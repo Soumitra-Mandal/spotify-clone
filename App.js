@@ -1,21 +1,50 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , Button} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AntDesign,Ionicons,FontAwesome5  } from '@expo/vector-icons'; 
 
-import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
+//import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
 //import { AppearanceProvider,Appearance } from 'react-native-appearance';
+const Stack = createStackNavigator();
 
-function HomeScreen() {
+function HomeScreen1({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
+      <Text>Home 1!</Text>
+      <Button
+        title="Go to 2nd Home"
+        onPress={() => navigation.navigate('Home2')}
+      />
     </View>
   );
 }
+
+function HomeScreen2({ navigation }) {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home 2!</Text>
+      <Button
+        title="Go to 1st Home"
+        onPress={() => navigation.navigate('Home1')}
+      />
+    </View>
+  );
+}
+
+
+function HomeScreen() {
+  return (
+    <Stack.Navigator initialRouteName="HomeScreen1">
+      <Stack.Screen name="Home1" component={HomeScreen1} />
+      <Stack.Screen name="Home2" component={HomeScreen2} />
+    </Stack.Navigator>
+  );
+}
+
 
 function SearchScreen() {
   return (
