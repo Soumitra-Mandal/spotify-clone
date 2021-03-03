@@ -2,15 +2,19 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View , Button} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+//import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AntDesign,Ionicons,FontAwesome5  } from '@expo/vector-icons'; 
+import HomeScreen from './components/screens/homescreen.js';
+import SearchScreen from './components/screens/searchscreen.js';
+import PremiumScreen from './components/screens/premiumscreen.js';
+import LibraryScreen from './components/screens/libraryscreen.js';
 
 //import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
 //import { AppearanceProvider,Appearance } from 'react-native-appearance';
-const Stack = createStackNavigator();
-
+//const Stack = createStackNavigator();
+/*
 function HomeScreen1({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -34,40 +38,13 @@ function HomeScreen2({ navigation }) {
     </View>
   );
 }
+*/
 
 
-function HomeScreen() {
-  return (
-    <Stack.Navigator initialRouteName="HomeScreen1">
-      <Stack.Screen name="Home1" component={HomeScreen1} />
-      <Stack.Screen name="Home2" component={HomeScreen2} />
-    </Stack.Navigator>
-  );
-}
 
 
-function SearchScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Search!</Text>
-    </View>
-  );
-}
 
-function LibraryScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Library!</Text>
-    </View>
-  );
-}
-function PremiumScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Premium!</Text>
-    </View>
-  );
-}
+
 
 const Tab = createBottomTabNavigator();
 
@@ -122,18 +99,3 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop:40,
-    flexDirection:'row',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',    
-  },
-  text:{
-    fontSize: 20,
-    padding:30,
-    textAlign: 'center',
-
-  },
-});
