@@ -1,6 +1,5 @@
 import { StyleSheet, Text,FlatList, View} from 'react-native';
 import React from 'react';
-import PropTypes from 'prop-types';
 import AlbumComponent from './album.js';
 
 export default function AlbumCategory(props){
